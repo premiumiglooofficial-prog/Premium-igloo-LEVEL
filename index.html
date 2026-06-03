@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고급 이글루 SYSTEM : LEVEL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="system-container">
+    <div class="header-container">
+        <h2 class="main-title">고급 이글루 <span class="highlight">SYSTEM : LEVEL</span></h2>
+        <p class="sub-title">LEVEL & XP 통합 시뮬레이션 대시보드</p>
+    </div>
+
+    <div class="main-menu-wrapper">
+        <div class="main-menu-tabs">
+            <button class="main-tab-btn active" onclick="switchMainPage('page-intro', this)">시스템 소개</button>
+            <button class="main-tab-btn" onclick="switchMainPage('page-policy', this)">XP 획득 및 혜택</button>
+            <button class="main-tab-btn" onclick="switchMainPage('page-xptable', this)">XP 테이블</button>
+            <button class="main-tab-btn" onclick="switchMainPage('page-simulator', this)">XP 시뮬레이터</button>
+            <button class="main-tab-btn" onclick="switchMainPage('page-faq', this)">자주 묻는 질문(FAQ)</button>
+        </div>
+    </div>
+
+    <div id="page-intro" class="main-page active">
+        <section class="policy-section">
+            
+            <div style="text-align: center; margin-bottom: 35px;">
+                <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #e91e3f; display: inline-block; padding-bottom: 8px;">SYSTEM : XP & LEVEL</h3>
+                <p style="font-size: 15px; color: #a1a1aa; letter-spacing: -0.3px; margin-top: 5px;">
+                    채팅과 음성 채널 활동으로 XP를 획득해 레벨을 올리고, 다양한 혜택을 누려보세요.
+                </p>
+            </div>
+            
+            <div class="feature-grid" style="margin-bottom: 50px;">
+                <div class="feature-card">
+                    <div class="f-title">XP 획득</div>
+                    <div class="f-desc">채팅 및 음성 채널 참여를 통해 XP를 획득하세요.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-title">레벨 및 역할</div>
+                    <div class="f-desc">특정 레벨 도달 시 레벨별 역할이 부여됩니다.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-title">상태 조회</div>
+                    <div class="f-desc">명령어를 통해 본인의 성장도를 실시간으로 확인하세요.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-title">한계 돌파</div>
+                    <div class="f-desc">최고 레벨 도달 후에도 지속적인 성장이 가능합니다.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-title">상품 구매</div>
+                    <div class="f-desc">XP SHOP에서 원하는 특별 상품을 구매하세요.</div>
+                </div>
+            </div>
+
+            <div class="split-grid">
+                <div>
+                    <div class="split-section-title">기본 명령어</div>
+                    <ul class="cmd-list">
+                        <li><span class="cmd-badge">/레벨</span> <span>다음 레벨 도달까지 필요 XP 확인</span></li>
+                        <li><span class="cmd-badge">/랭크</span> <span>지정 유저의 XP, 레벨, 서버 내 순위 확인</span></li>
+                        <li><span class="cmd-badge">/출석체크</span> <span>출석체크를 통한 XP 혜택 지급</span></li>
+                        <li><span class="cmd-badge">/경험치샵</span> <span>XP SHOP으로 이동</span></li>
+                    </ul>
+                </div>
+                <div class="split-pane-right">
+                    <div class="split-section-title">이용 주의사항</div>
+                    <ul class="warn-list">
+                        <li>잠수 음성 채널 이용 시 XP 획득이 불가합니다.</li>
+                        <li>마이크 / 헤드셋 음소거 시 XP 획득량이 90% 감소됩니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="divider-line"></div>
+
+            <div style="text-align: center; margin-bottom: 35px;">
+                <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #e91e3f; display: inline-block; padding-bottom: 8px;">SYSTEM : XP SHOP</h3>
+                <p style="font-size: 15px; color: #a1a1aa; letter-spacing: -0.3px; margin-top: 5px;">
+                    획득한 XP를 소모하여, 원하는 특별 상품을 구매할 수 있는 상점입니다.
+                </p>
+                <div style="margin-top: 20px;">
+                    <a href="https://leaderboard.run/shop/1066671258273587310" target="_blank" class="shop-link-btn" style="margin-top:0;">XP SHOP 바로가기</a>
+                </div>
+            </div>
+            
+            <div class="feature-grid four-cards" style="margin-bottom: 50px;">
+                <div class="feature-card">
+                    <div class="f-title">역할 상품</div>
+                    <div class="f-desc">색다른 펭귄 역할들을 구매해보세요.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-title">부스트 상품</div>
+                    <div class="f-desc">레벨 성장에 도움을 주는 부스트 상품을 구매해보세요.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-title">권한 상품</div>
+                    <div class="f-desc">권한 상품을 구매하여, 서버 이용 편의를 높여보세요.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-title">시즌 상품</div>
+                    <div class="f-desc">시즌 별 특별한 상품을 구매해보세요.</div>
+                </div>
+            </div>
+
+            <div>
+                <div class="split-section-title" style="color: #e91e3f;">구매 주의사항</div>
+                <ul class="warn-list">
+                    <li>XP 소모 구매 방식으로, 소모된 XP로 인해 레벨이 하락할 수 있습니다.</li>
+                </ul>
+            </div>
+
+        </section>
+    </div>
+
+    <div id="page-policy" class="main-page">
+        <section class="policy-section">
+            <div class="sub-tab-menu">
+                <button class="sub-tab-btn active" onclick="switchSubTab(event, 'policy-tab1')">기본 XP 획득량</button>
+                <button class="sub-tab-btn" onclick="switchSubTab(event, 'policy-tab2')">추가 XP & 출석 보상 효과</button>
+                <button class="sub-tab-btn" onclick="switchSubTab(event, 'policy-tab3')">레벨 구간별 추가 기준</button>
+            </div>
+
+            <div id="policy-tab1" class="sub-tab-content active">
+                <div class="info-card">
+                    <div class="policy-list-item">
+                        <div class="policy-info">
+                            <div class="title">채팅 채널</div>
+                            <div class="desc">채팅 채널 이용 시 적용되는 기준입니다. 채팅 입력 시 XP를 획득하며, 오남용 방지를 위해 쿨타임 1분이 적용되어 있습니다.</div>
+                        </div>
+                        <div class="badge-group">
+                            <div class="policy-badge">+ 200 XP</div>
+                            <div class="policy-badge-green">쿨타임 1분</div>
+                        </div>
+                    </div>
+                    <div class="policy-list-item">
+                        <div class="policy-info">
+                            <div class="title">음성 채널</div>
+                            <div class="desc">음성 채널 이용 시 적용되는 기준입니다. 최소 5분 동안 접속 지속 시 XP 지급이 됩니다.</div>
+                        </div>
+                        <div class="badge-group">
+                            <div class="policy-badge">+ 3,000 XP</div>
+                            <div class="policy-badge-green">쿨타임 5분</div>
+                        </div>
+                    </div>
+                    <div class="policy-list-item">
+                        <div class="policy-info">
+                            <div class="title">내전 채널</div>
+                            <div class="desc">내전 음성 채널 이용 시 적용되는 기준입니다. 기존 음성 채널과 동일하게 적용되며, 보너스 200 XP가 추가 지급됩니다.</div>
+                        </div>
+                        <div class="badge-group">
+                            <div class="policy-badge">+ 3,200 XP</div>
+                            <div class="policy-badge-green">쿨타임 5분</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="policy-tab2" class="sub-tab-content">
+                <div class="info-card">
+                    <div class="section-sub-title">추가 XP 시스템</div>
+                    
+                    <div class="policy-list-item">
+                        <div class="policy-info">
+                            <div class="title">[XP] Boost+</div>
+                            <div class="desc">해당 상품 보유 후, XP 획득 요건 충족 시 기본 XP에 추가 XP를 획득합니다.</div>
+                        </div>
+                        <div class="badge-group"><div class="policy-badge">+ 300 XP</div></div>
+                    </div>
+                    
+                    <div class="policy-list-item">
+                        <div class="policy-info">
+                            <div class="title">[XP] S1 Boost+</div>
+                            <div class="desc">해당 상품 보유 후, XP 획득 요건 충족 시 기본 XP에 추가 XP를 획득합니다.</div>
+                        </div>
+                        <div class="badge-group"><div class="policy-badge">+ 100 XP</div></div>
+                    </div>
+                    
+                    <div class="policy-list-item">
+                        <div class="policy-info">
+                            <div class="title">[이벤트] 6월 Bonus</div>
+                            <div class="desc">해당 상품 보유 후, XP 획득 요건 충족 시 기본 XP에 추가 XP를 획득합니다.</div>
+                        </div>
+                        <div class="badge-group"><div class="policy-badge">+ 200 XP</div></div>
+                    </div>
+                    
+                    <div class="policy-list-item">
+                        <div class="policy-info">
+                            <div class="title">[역할] 펭귄 패밀리</div>
+                            <div class="desc">해당 상품 보유 후, XP 획득 요건 충족 시 기본 XP에 추가 XP를 획득합니다. [중첩 누적 가능]</div>
+                            
+                            <table class="penguin-table">
+                                <thead>
+                                    <tr>
+                                        <th>보유 역할</th>
+                                        <th>추가 XP</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>어린이 펭귄</td>
+                                        <td>+ 225 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>청소년 펭귄</td>
+                                        <td>+ 325 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>어른 펭귄</td>
+                                        <td>+ 425 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>어미 펭귄</td>
+                                        <td>+ 525 XP</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card" style="border-left: 4px solid #e91e3f;">
+                    <div class="section-sub-title">출석 XP 시스템</div>
+                    
+                    <div class="policy-list-item">
+                        <div class="policy-info">
+                            <div class="title">기본 출석 체크</div>
+                            <div class="desc">출석 체크 시, 1회당 5,000 XP가 지급됩니다.</div>
+                        </div>
+                        <div class="badge-group"><div class="policy-badge">+ 5,000 XP</div></div>
+                    </div>
+                    
+                    <div class="policy-list-item">
+                        <div class="policy-info">
+                            <div class="title">[XP] 출석 Boost</div>
+                            <div class="desc">해당 상품 보유 후, 출석 체크 시 기본 XP에 추가 XP를 획득합니다.</div>
+                        </div>
+                        <div class="badge-group"><div class="policy-badge">+ 5,000 XP</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="policy-tab3" class="sub-tab-content">
+                <div class="dark-list-row header">
+                    <div>진입 기준 레벨 조건</div>
+                    <div>구간 추가 XP</div>
+                    <div>이전 구간 대비 변동량</div>
+                </div>
+                <div class="dark-list-row"><div>0Lv ~ 49Lv (기본값)</div><div class="xp-val">+3,000 XP</div><div class="default-val">-</div></div>
+                <div class="dark-list-row"><div>50Lv ~ 99Lv</div><div class="xp-val">+3,150 XP</div><div class="diff-val">▲ 150</div></div>
+                <div class="dark-list-row"><div>100Lv ~ 149Lv</div><div class="xp-val">+3,200 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>150Lv ~ 199Lv</div><div class="xp-val">+3,250 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>200Lv ~ 249Lv</div><div class="xp-val">+3,300 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>250Lv ~ 299Lv</div><div class="xp-val">+3,350 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>300Lv ~ 349Lv</div><div class="xp-val">+3,400 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>350Lv ~ 399Lv</div><div class="xp-val">+3,450 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>400Lv ~ 449Lv</div><div class="xp-val">+3,500 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>450Lv ~ 499Lv</div><div class="xp-val">+3,600 XP</div><div class="diff-val">▲ 100</div></div>
+                <div class="dark-list-row"><div>500Lv ~ 549Lv</div><div class="xp-val">+3,650 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>550Lv ~ 599Lv</div><div class="xp-val">+3,700 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>600Lv ~ 649Lv</div><div class="xp-val">+3,750 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>649Lv ~ 699Lv</div><div class="xp-val">+3,800 XP</div><div class="diff-val">▲ 50</div></div>
+                <div class="dark-list-row"><div>700Lv 이상 최고 구간</div><div class="xp-val">+4,000 XP</div><div class="diff-val">▲ 200</div></div>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-xptable" class="main-page">
+        <section class="policy-section">
+            <h3 style="margin-bottom: 15px;">레벨별 필요 및 누적 XP 검색</h3>
+            
+            <div class="table-search-box">
+                <div>
+                    <label style="display: block; font-size: 13px; color: #a1a1aa; margin-bottom: 8px;">🔍 레벨을 입력하여 검색하세요</label>
+                    <input type="number" id="search-level-input" min="1" max="700" placeholder="레벨 검색 (1~700)" value="" onkeydown="if(event.key === 'Enter'){ searchLevelXp(true); }">
+                    <button onclick="searchLevelXp(true)" style="margin-left: 5px; padding: 10px 15px; background: #e91e3f; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">검색</button>
+                </div>
+                <div class="table-search-result">
+                    <div style="text-align: center;">
+                        <span style="font-size: 12px; color: #71717a; display: block; margin-bottom: 4px;">해당 레벨 누적 XP</span>
+                        <span id="search-cum-xp" style="font-size: 16px; font-weight: 700; color: #e91e3f;">- XP</span>
+                    </div>
+                    <div style="border-left: 1px solid #2d2d35; margin: 0 15px;"></div>
+                    <div style="text-align: center;">
+                        <span style="font-size: 12px; color: #71717a; display: block; margin-bottom: 4px;">레벨업 필요 XP (이전 ➡ 현재)</span>
+                        <span id="search-req-xp" style="font-size: 16px; font-weight: 700; color: #ffffff;">- XP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scrollable-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>도달 레벨</th>
+                            <th>누적 XP 총량</th>
+                            <th>필요 XP (이전 구간 대비)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="full-xp-table-body">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-simulator" class="main-page">
+        <section class="simulator-section">
+            <div class="simulator-grid">
+                <div class="input-form">
+                    <h3>시뮬레이터 조건 설정</h3>
+                    
+                    <div class="form-group">
+                        <label>현재 유저 레벨</label>
+                        <input type="number" id="sim-level" value="0" min="0" oninput="runXpSimulator()">
+                    </div>
+                    <div class="form-group">
+                        <label>이용 활동 채널</label>
+                        <select id="sim-channel" onchange="runXpSimulator()">
+                            <option value="chat">채팅 채널 (1분 주기)</option>
+                            <option value="voice">음성 채널 (5분 주기)</option>
+                            <option value="scrim">내전 채널 (5분 주기)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>총 활동 시간 (분 단위)</label>
+                        <input type="number" id="sim-time" value="0" min="0" oninput="runXpSimulator()">
+                    </div>
+                    <div class="form-group">
+                        <label>[아이템] XP Boost+ 적용</label>
+                        <select id="sim-boost1" onchange="runXpSimulator()">
+                            <option value="N">미적용</option>
+                            <option value="Y">적용</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>[아이템] [XP] S1 Boost+ 적용</label>
+                        <select id="sim-boost2" onchange="runXpSimulator()">
+                            <option value="N">미적용</option>
+                            <option value="Y">적용</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>[이벤트] 6월 Bonus 적용</label>
+                        <select id="sim-event" onchange="runXpSimulator()">
+                            <option value="N">미적용</option>
+                            <option value="Y">적용</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>[아이템] 보유 펭귄 선택</label>
+                        <select id="sim-penguin" onchange="runXpSimulator()">
+                            <option value="none">없음</option>
+                            <option value="child">어린이 펭귄 (+225)</option>
+                            <option value="youth">청소년 펭귄 (+325)</option>
+                            <option value="adult">어른 펭귄 (+425)</option>
+                            <option value="mother">어미 펭귄 (+525)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>총 출석 횟수</label>
+                        <input type="number" id="sim-attendance" value="0" min="0" oninput="runXpSimulator()">
+                    </div>
+                    <div class="form-group">
+                        <label>출석 Boost 추가 적용</label>
+                        <select id="sim-attend-boost" onchange="runXpSimulator()">
+                            <option value="N">미적용</option>
+                            <option value="Y">적용</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; justify-content: flex-start;">
+                    <h3 style="visibility: hidden;">공백 맞춤용 헤더</h3> 
+                    
+                    <div class="layered-result-container">
+                        <div class="card-grand-total">
+                            <span class="total-xp-title">최종 도달 예상 누적 XP</span>
+                            <div class="total-xp-wrapper">
+                                <span class="level-badge" id="reachedLevelDisplay">도달 예상: 0 Lv</span>
+                                <span class="total-xp-display" id="totalXpDisplay">0 XP</span>
+                                <span class="new-xp-subtitle" id="newXpDisplay">(예상 추가 획득: +0 XP)</span>
+                            </div>
+                        </div>
+
+                        <div class="card-analysis-details">
+                            <table class="details-table">
+                                <colgroup>
+                                    <col style="width: 70%;">
+                                    <col style="width: 30%;">
+                                </colgroup>
+                                <tbody>
+                                    <tr><td>선택 채널 기본 XP (1회당)</td><td id="out-channel-base">0</td></tr>
+                                    <tr><td>레벨별 구간 추가 XP (1회당)</td><td id="out-level-bonus">0</td></tr>
+                                    <tr><td>[채널] 1회 지급당 합계 XP</td><td id="out-combined-base">0</td></tr>
+                                    <tr><td>[채널] 예상 활동 인정 횟수</td><td id="out-channel-cycles">0회</td></tr>
+                                    <tr><td>[채널] 활동 XP 획득 총량</td><td id="out-channel-total">0</td></tr>
+                                    <tr><td id="label-b1">[아이템] XP Boost+ 추가합산 (5분당)</td><td id="out-b1-val">0</td></tr>
+                                    <tr><td id="label-b2">[아이템] [XP] S1 Boost+ 추가합산 (5분당)</td><td id="out-b2-val">0</td></tr>
+                                    <tr><td id="label-ev">[이벤트] 6월 Bonus 추가합산 (5분당)</td><td id="out-ev-val">0</td></tr>
+                                    <tr><td id="label-pen">[아이템] 펭귄 마스코트 추가합산 (5분당)</td><td id="out-pen-val">0</td></tr>
+                                    <tr><td id="label-buff-cycles">[아이템] 적용 인정 횟수 (5분 지속 기준)</td><td id="out-buff-cycles">0회</td></tr>
+                                    <tr><td>[버프] 아이템/이벤트 획득 총량</td><td id="out-buff-total">0</td></tr>
+                                    <tr><td>[출석] 기본 출석 보상 합계</td><td id="out-attend-base">0</td></tr>
+                                    <tr><td>[출석] 출석 Boost 추가 합계</td><td id="out-attend-boost">0</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-faq" class="main-page">
+        <section class="policy-section">
+            
+            <div class="faq-category-title">XP & LEVEL 관련 FAQ</div>
+            <div class="faq-container">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Q. 레벨업에 필요한 XP 양은 모든 구간이 같나요? <span class="arrow">▼</span></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            <div class="faq-a-title">단계별 요구 XP 산정 방식</div>
+                            <p>상위 레벨로 진입할수록 다음 단계 달성에 필요한 XP 요구량이 점진적으로 증가합니다. 단, 레벨 상승에 맞춰 XP 획득 효율 또한 유동적으로 조정되어 안정적인 성장이 가능하도록 설계되었습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Q. 채팅을 빠르고 많이 치면 XP를 빨리 획득할 수 있나요? <span class="arrow">▼</span></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            <div class="faq-a-title">비정상 획득 방지 여부</div>
+                            <p>획득할 수 있는 쿨타임이 존재합니다. 정상적인 채팅 활동을 통해 안정적으로 XP를 쌓아주세요.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Q. 음성 채널에 혼자 있어도 XP 획득이 가능한가요? <span class="arrow">▼</span></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            <div class="faq-a-title">활동에 따른 XP 획득 여부</div>
+                            <p>네, 가능합니다. 단, 마이크 및 헤드셋 음소거 시 XP 획득량이 90% 감소되며, 잠수 채널로 이동 시 XP 획득이 불가합니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Q. 레벨이 오르면 어떤 구체적인 혜택이 있나요? <span class="arrow">▼</span></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            <div class="faq-a-title">단계별 전용 혜택 여부</div>
+                            <p>특정 레벨마다의 전용 레벨 역할 및 색상 혜택이 적용됩니다. 레벨이 상승할수록 XP SHOP 내 이용 가능한 상품 라인업이 점진적으로 확대됩니다.<br>XP SHOP에는 서버 이용 편의를 돕는 권한 상품이 포함되어 있으니, 구매를 통해 최적화된 서버 환경을 경험해 보시기 바랍니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Q. 서버 퇴장 시 XP 및 LEVEL이 유지 되나요? <span class="arrow">▼</span></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            <div class="faq-a-title">서버 데이터 유지 여부</div>
+                            <p>유지되지 않습니다. 2026-04-11(토) 이후 운영 정책이 변경됨에 따라 서버 퇴장 시 즉시 LEVEL 및 XP가 모두 초기화 됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category-title" style="margin-top: 25px;">XP SHOP 관련 FAQ</div>
+            <div class="faq-container">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Q. 레벨에 따라 구매할 수 있는 상품이 다른가요? <span class="arrow">▼</span></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            <div class="faq-a-title">등급별 상품 접근 권한</div>
+                            <p>네, 그렇습니다. 레벨이 높아질 수록, 구매할 수 있는 상품의 폭이 커지게 됩니다.<br>지속적인 활동을 통해 XP를 획득하여, <strong>프리미엄 상품</strong>들을 획득하시길 바랍니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Q. 상품 구매 후 환불 및 교환이 가능한가요? <span class="arrow">▼</span></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            <div class="faq-a-title">환불 및 교환 규정 안내</div>
+                            <p>네, 가능합니다. 단, 기프트 상품을 제외한 모든 상품은 구매 후 30분 이내로 '고급 이글루 &gt; 문의 &gt; 일반 문의'에 환불 및 교환 신청 시에만 처리 가능합니다.<br>기프트 상품의 경우에는 환불 및 교환이 절대 불가하오니 구매 시 유의해 주시기 바랍니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
