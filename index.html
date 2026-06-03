@@ -6,14 +6,13 @@
     <title>고급 이글루 SYSTEM : LEVEL</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- CSS 파일 연결 시 캐시 방지 코드를 붙여 확실한 갱신 보장 -->
-    <link rel="stylesheet" href="css/style.css?ver=5">
+    <link rel="stylesheet" href="css/style.css?ver=6">
 </head>
 <body>
 
 <div class="system-container">
     <header class="header-container">
         <h2 class="main-title">고급 이글루 <span class="highlight">SYSTEM : LEVEL</span></h2>
-        <!-- 통일 요청 반영: XP & LEVEL -->
         <p class="sub-title">XP & LEVEL 통합 시뮬레이션 대시보드</p>
     </header>
 
@@ -385,6 +384,11 @@
                             <span class="slider"></span>
                         </label>
                     </div>
+
+                    <!-- 초기화 버튼 추가 (좌측 하단 정렬) -->
+                    <div style="margin-top: 15px; text-align: left;">
+                        <button class="reset-btn" onclick="resetSimulator()">🔄 조건 초기화</button>
+                    </div>
                 </div>
 
                 <div style="display: flex; flex-direction: column; justify-content: flex-start;">
@@ -475,7 +479,6 @@
                     <div class="faq-a">
                         <div class="faq-a-inner">
                             <div class="faq-a-title">서버 데이터 유지 여부</div>
-                            <!-- 통일 요청 반영: XP 및 LEVEL -->
                             <p>유지되지 않습니다. 2026-04-11(토) 이후 운영 정책이 변경됨에 따라 서버 퇴장 시 즉시 XP 및 LEVEL이 모두 초기화 됩니다.</p>
                         </div>
                     </div>
@@ -508,6 +511,6 @@
 </div>
 
 <!-- JS 연동 (버전 파라미터를 추가해 캐시를 뚫어냅니다) -->
-<script src="js/script.js?ver=5"></script>
+<script src="js/script.js?ver=6"></script>
 </body>
 </html>

@@ -97,7 +97,7 @@ function searchLevelXp(isManual = false) {
 }
 
 // ==========================================
-// 3. 실시간 시뮬레이터 (체크박스/다중선택 개편 완벽 적용)
+// 3. 실시간 시뮬레이터 로직
 // ==========================================
 function runXpSimulator() {
     const simLevelEl = document.getElementById('sim-level');
@@ -105,25 +105,21 @@ function runXpSimulator() {
     const simAttendEl = document.getElementById('sim-attendance');
     if (!simLevelEl) return;
 
-    // 공백일 때 제한 코드가 실행되지 않도록 조건 추가 (Placeholder 보존)
     if (simLevelEl.value !== "" && parseInt(simLevelEl.value) > 1000) simLevelEl.value = 1000;
     if (simTimeEl.value !== "" && parseInt(simTimeEl.value) > 999999) simTimeEl.value = 999999;
     if (simAttendEl.value !== "" && parseInt(simAttendEl.value) > 9999) simAttendEl.value = 9999;
 
-    // 빈칸이면 0으로 취계산
     const level = Math.max(0, parseInt(simLevelEl.value) || 0);
     const time = Math.max(0, parseInt(simTimeEl.value) || 0);
     const attendanceCount = Math.max(0, parseInt(simAttendEl.value) || 0);
     
     const channel = document.getElementById('sim-channel').value;
     
-    // 토글 스위치 (checked 불리언 값으로 변경)
     const boost1Yn = document.getElementById('sim-boost1').checked;
     const boost2Yn = document.getElementById('sim-boost2').checked;
     const eventYn = document.getElementById('sim-event').checked;
     const attendBoostYn = document.getElementById('sim-attend-boost').checked;
 
-    // 채널 로직
     let channelBaseXp = 0;
     let levelBonusXp = 0;
     let checkInterval = 1;
@@ -157,12 +153,10 @@ function runXpSimulator() {
     const buffCycles = channelCycles; 
     const channelTotalXp = (channelBaseXp + levelBonusXp) * channelCycles;
 
-    // 버프 다중 체크 처리
     const b1Add = boost1Yn ? 300 : 0;
     const b2Add = boost2Yn ? 100 : 0;
     const evAdd = eventYn ? 200 : 0;
     
-    // 펭귄 Pill버튼 다중 중복 합산
     let penguinAdd = 0;
     if (document.getElementById('pen-child').checked) penguinAdd += 225;
     if (document.getElementById('pen-youth').checked) penguinAdd += 325;
@@ -179,7 +173,6 @@ function runXpSimulator() {
     
     const finalLevel = getLevelByXp(projectedTotalXp);
 
-    // 디스플레이 매핑
     document.getElementById('totalXpDisplay').innerText = projectedTotalXp.toLocaleString() + ' XP';
     document.getElementById('newXpDisplay').innerText = '(예상 추가 획득: + ' + finalGrandTotal.toLocaleString() + ' XP)';
     document.getElementById('reachedLevelDisplay').innerText = '도달 예상: ' + finalLevel + ' Lv';
@@ -207,6 +200,29 @@ function runXpSimulator() {
     document.getElementById('label-ev').innerText = `[이벤트] 6월 Bonus 추가합산 (${cycleText})`;
     document.getElementById('label-pen').innerText = `[아이템] 펭귄 마스코트 추가합산 (${cycleText})`;
     document.getElementById('label-buff-cycles').innerText = `[아이템] 적용 인정 횟수 (${cycleBaseText} 지속 기준)`;
+}
+
+// ── 새로 추가된 시뮬레이터 폼 초기화 함수 ──
+function resetSimulator() {
+    // 텍스트/숫자 인풋 비우기
+    document.getElementById('sim-level').value = '';
+    document.getElementById('sim-time').value = '';
+    document.getElementById('sim-attendance').value = '';
+
+    // 셀렉트 박스 기본값으로 되돌리기
+    document.getElementById('sim-channel').value = 'chat';
+
+    // 토글 스위치 및 펭귄 Pill 버튼(체크박스) 해제
+    const checkboxes = [
+        'sim-boost1', 'sim-boost2', 'sim-event', 'sim-attend-boost',
+        'pen-child', 'pen-youth', 'pen-adult', 'pen-mother'
+    ];
+    checkboxes.forEach(id => {
+        document.getElementById(id).checked = false;
+    });
+
+    // 화면(결과창)을 0 상태로 초기화 연산
+    runXpSimulator();
 }
 
 window.onload = function() {
