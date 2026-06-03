@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고급 이글루 SYSTEM : LEVEL</title>
-
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="system-container">
-    <div class="header-container">
+    <header class="header-container">
         <h2 class="main-title">고급 이글루 <span class="highlight">SYSTEM : LEVEL</span></h2>
         <p class="sub-title">LEVEL & XP 통합 시뮬레이션 대시보드</p>
-    </div>
+    </header>
 
-    <div class="main-menu-wrapper">
+    <nav class="main-menu-wrapper">
         <div class="main-menu-tabs">
             <button class="main-tab-btn active" onclick="switchMainPage('page-intro', this)">시스템 소개</button>
             <button class="main-tab-btn" onclick="switchMainPage('page-policy', this)">XP 획득 및 혜택</button>
@@ -25,9 +23,9 @@
             <button class="main-tab-btn" onclick="switchMainPage('page-simulator', this)">XP 시뮬레이터</button>
             <button class="main-tab-btn" onclick="switchMainPage('page-faq', this)">자주 묻는 질문(FAQ)</button>
         </div>
-    </div>
+    </nav>
 
-    <div id="page-intro" class="main-page active">
+    <main id="page-intro" class="main-page active">
         <section class="policy-section">
             
             <div style="text-align: center; margin-bottom: 35px;">
@@ -118,9 +116,9 @@
             </div>
 
         </section>
-    </div>
+    </main>
 
-    <div id="page-policy" class="main-page">
+    <main id="page-policy" class="main-page">
         <section class="policy-section">
             <div class="sub-tab-menu">
                 <button class="sub-tab-btn active" onclick="switchSubTab(event, 'policy-tab1')">기본 XP 획득량</button>
@@ -204,22 +202,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>어린이 펭귄</td>
-                                        <td>+ 225 XP</td>
-                                    </tr>
-                                    <tr>
-                                        <td>청소년 펭귄</td>
-                                        <td>+ 325 XP</td>
-                                    </tr>
-                                    <tr>
-                                        <td>어른 펭귄</td>
-                                        <td>+ 425 XP</td>
-                                    </tr>
-                                    <tr>
-                                        <td>어미 펭귄</td>
-                                        <td>+ 525 XP</td>
-                                    </tr>
+                                    <tr><td>어린이 펭귄</td><td>+ 225 XP</td></tr>
+                                    <tr><td>청소년 펭귄</td><td>+ 325 XP</td></tr>
+                                    <tr><td>어른 펭귄</td><td>+ 425 XP</td></tr>
+                                    <tr><td>어미 펭귄</td><td>+ 525 XP</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -270,9 +256,9 @@
                 <div class="dark-list-row"><div>700Lv 이상 최고 구간</div><div class="xp-val">+4,000 XP</div><div class="diff-val">▲ 200</div></div>
             </div>
         </section>
-    </div>
+    </main>
 
-    <div id="page-xptable" class="main-page">
+    <main id="page-xptable" class="main-page">
         <section class="policy-section">
             <h3 style="margin-bottom: 15px;">레벨별 필요 및 누적 XP 검색</h3>
             
@@ -309,9 +295,9 @@
                 </table>
             </div>
         </section>
-    </div>
+    </main>
 
-    <div id="page-simulator" class="main-page">
+    <main id="page-simulator" class="main-page">
         <section class="simulator-section">
             <div class="simulator-grid">
                 <div class="input-form">
@@ -417,9 +403,9 @@
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
-    <div id="page-faq" class="main-page">
+    <main id="page-faq" class="main-page">
         <section class="policy-section">
             
             <div class="faq-category-title">XP & LEVEL 관련 FAQ</div>
@@ -433,7 +419,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 채팅을 빠르고 많이 치면 XP를 빨리 획득할 수 있나요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -443,7 +428,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 음성 채널에 혼자 있어도 XP 획득이 가능한가요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -453,7 +437,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 레벨이 오르면 어떤 구체적인 혜택이 있나요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -463,7 +446,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 서버 퇴장 시 XP 및 LEVEL이 유지 되나요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -486,7 +468,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 상품 구매 후 환불 및 교환이 가능한가요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -499,9 +480,9 @@
             </div>
 
         </section>
-    </div>
+    </main>
 </div>
 
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
