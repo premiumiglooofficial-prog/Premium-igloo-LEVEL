@@ -1,13 +1,11 @@
 // ==========================================
-// 1. UI 및 탭 전환 기능
+// 1. UI 인터페이스 제어 및 탭 본문 전환 익스텐션
 // ==========================================
 
-// FAQ 아코디언 토글 기능
 function toggleFaq(element) {
     element.classList.toggle('active');
 }
 
-// 메인 상단 대분류 탭 전환
 function switchMainPage(pageId, element) {
     const pages = document.getElementsByClassName("main-page");
     for (let i = 0; i < pages.length; i++) {
@@ -21,13 +19,11 @@ function switchMainPage(pageId, element) {
     document.getElementById(pageId).classList.add("active");
     element.classList.add("active");
 
-    // 시뮬레이터 탭 진입 시 실시간 계산기 동기화 구동
     if(pageId === 'page-simulator') {
         runXpSimulator();
     }
 }
 
-// 서브 소분류 탭 전환 (XP 획득 및 혜택 내 정책 탭)
 function switchSubTab(event, tabId) {
     const tabContents = document.getElementsByClassName("sub-tab-content");
     for (let i = 0; i < tabContents.length; i++) {
@@ -42,16 +38,14 @@ function switchSubTab(event, tabId) {
 }
 
 // ==========================================
-// 2. XP 산술 공식 및 테이블 생성 로직
+// 2. XP 테이블 기하수식 커널
 // ==========================================
 
-// 특정 레벨 산정 공식
 function getCumulativeXpByLevel(lvl) {
     if (lvl <= 0) return 0;
     return Math.floor(((23 * lvl)**2 - 525) / 5) + 1;
 }
 
-// 누적 XP 기준 레벨 역산 공식
 function getLevelByXp(xp) {
     if (xp <= 0) return 0;
     for (let l = 1; l <= 700; l++) {
@@ -63,7 +57,6 @@ function getLevelByXp(xp) {
     return 700; 
 }
 
-// 1부터 700 레벨전체 테이블 마크업 렌더링
 function renderFullXpTable() {
     const tbody = document.getElementById('full-xp-table-body');
     if (!tbody) return;
@@ -74,35 +67,29 @@ function renderFullXpTable() {
         const reqXp = i === 1 ? 0 : cumXp - getCumulativeXpByLevel(i - 1);
         htmlStr += `
             <tr id="row-lvl-${i}">
-                <td style="color: #e91e3f; font-weight: 700;">${i} Lv</td>
-                <td style="color: #e2e8f0;">${cumXp.toLocaleString()} XP</td>
-                <td>${reqXp.toLocaleString()} XP</td>
+                <td style="color: #e91e3f; font-weight: 700; font-size:12px;">${i} Lv</td>
+                <td style="color: #e2e8f0; font-size:12px;">${cumXp.toLocaleString()} XP</td>
+                <td style="font-size:12px;">${reqXp.toLocaleString()} XP</td>
             </tr>
         `;
     }
     tbody.innerHTML = htmlStr;
 }
 
-// 테이블 내 특정 레벨 다이렉트 검색 및 위치 동기화 스크롤
 function searchLevelXp(isManual = false) {
     const searchInput = document.getElementById('search-level-input');
     if (!searchInput) return;
 
     let rawVal = searchInput.value;
-    
     if (!rawVal) {
         document.getElementById('search-cum-xp').innerText = '- XP';
         document.getElementById('search-req-xp').innerText = '- XP';
-        
-        const prev = document.querySelector('.highlight-pulse');
-        if(prev) prev.classList.remove('highlight-pulse');
         return;
     }
 
     let inputVal = parseInt(rawVal);
     if (inputVal < 1) inputVal = 1;
     if (inputVal > 700) inputVal = 700;
-    
     searchInput.value = inputVal;
     
     const cumXp = getCumulativeXpByLevel(inputVal);
@@ -123,7 +110,7 @@ function searchLevelXp(isManual = false) {
 }
 
 // ==========================================
-// 3. XP 통합 시뮬레이터 연산 로직
+// 3. 실시간 XP 버프 시뮬레이터 로직
 // ==========================================
 
 function runXpSimulator() {
@@ -173,7 +160,6 @@ function runXpSimulator() {
 
     const channelCycles = Math.floor(time / checkInterval);
     const buffCycles = channelCycles; 
-
     const channelTotalXp = (channelBaseXp + levelBonusXp) * channelCycles;
 
     const b1Add = (boost1Yn === 'Y') ? 300 : 0;
@@ -195,7 +181,6 @@ function runXpSimulator() {
     const projectedTotalXp = currentCumulativeXp + finalGrandTotal;
     const finalLevel = getLevelByXp(projectedTotalXp);
 
-    // 인터페이스 출력 매핑
     document.getElementById('totalXpDisplay').innerText = projectedTotalXp.toLocaleString() + ' XP';
     document.getElementById('newXpDisplay').innerText = '(예상 추가 획득: + ' + finalGrandTotal.toLocaleString() + ' XP)';
     document.getElementById('reachedLevelDisplay').innerText = '도달 예상: ' + finalLevel + ' Lv';
@@ -225,9 +210,6 @@ function runXpSimulator() {
     document.getElementById('label-buff-cycles').innerText = `[아이템] 적용 인정 횟수 (${cycleBaseText} 지속 기준)`;
 }
 
-// ==========================================
-// 4. 최초 초기 구동 로드 커널
-// ==========================================
 window.onload = function() {
     renderFullXpTable(); 
     runXpSimulator(); 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고급 이글루 SYSTEM : LEVEL</title>
-    <link class="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -28,14 +28,14 @@
     <main id="page-intro" class="main-page active">
         <section class="policy-section">
             
-            <div style="text-align: center; margin-bottom: 35px;">
-                <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #e91e3f; display: inline-block; padding-bottom: 8px;">SYSTEM : XP & LEVEL</h3>
-                <p style="font-size: 15px; color: #a1a1aa; letter-spacing: -0.3px; margin-top: 5px;">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h3 style="font-size: 16px; color: #ffffff; margin-bottom: 8px; border-bottom: 2px solid #e91e3f; display: inline-block; padding-bottom: 4px;">SYSTEM : XP & LEVEL</h3>
+                <p style="font-size: 13px; color: #a1a1aa; letter-spacing: -0.3px; margin-top: 3px;">
                     채팅과 음성 채널 활동으로 XP를 획득해 레벨을 올리고, 다양한 혜택을 누려보세요.
                 </p>
             </div>
             
-            <div class="feature-grid" style="margin-bottom: 50px;">
+            <div class="feature-grid">
                 <div class="feature-card">
                     <div class="f-title">XP 획득</div>
                     <div class="f-desc">채팅 및 음성 채널 참여를 통해 XP를 획득하세요.</div>
@@ -79,17 +79,17 @@
 
             <div class="divider-line"></div>
 
-            <div style="text-align: center; margin-bottom: 35px;">
-                <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #e91e3f; display: inline-block; padding-bottom: 8px;">SYSTEM : XP SHOP</h3>
-                <p style="font-size: 15px; color: #a1a1aa; letter-spacing: -0.3px; margin-top: 5px;">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h3 style="font-size: 16px; color: #ffffff; margin-bottom: 8px; border-bottom: 2px solid #e91e3f; display: inline-block; padding-bottom: 4px;">SYSTEM : XP SHOP</h3>
+                <p style="font-size: 13px; color: #a1a1aa; letter-spacing: -0.3px; margin-top: 3px;">
                     획득한 XP를 소모하여, 원하는 특별 상품을 구매할 수 있는 상점입니다.
                 </p>
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 15px;">
                     <a href="https://leaderboard.run/shop/1066671258273587310" target="_blank" class="shop-link-btn" style="margin-top:0;">XP SHOP 바로가기</a>
                 </div>
             </div>
             
-            <div class="feature-grid four-cards" style="margin-bottom: 50px;">
+            <div class="feature-grid four-cards">
                 <div class="feature-card">
                     <div class="f-title">역할 상품</div>
                     <div class="f-desc">색다른 펭귄 역할들을 구매해보세요.</div>
@@ -212,7 +212,7 @@
                     </div>
                 </div>
 
-                <div class="info-card" style="border-left: 4px solid #e91e3f;">
+                <div class="info-card" style="border-left: 3px solid #e91e3f;">
                     <div class="section-sub-title">출석 XP 시스템</div>
                     
                     <div class="policy-list-item">
@@ -235,9 +235,9 @@
 
             <div id="policy-tab3" class="sub-tab-content">
                 <div class="dark-list-row header">
-                    <div>진입 기준 레벨 조건</div>
+                    <div>진입 조건 레벨</div>
                     <div>구간 추가 XP</div>
-                    <div>이전 구간 대비 변동량</div>
+                    <div>이전 대비 변동량</div>
                 </div>
                 <div class="dark-list-row"><div>0Lv ~ 49Lv (기본값)</div><div class="xp-val">+3,000 XP</div><div class="default-val">-</div></div>
                 <div class="dark-list-row"><div>50Lv ~ 99Lv</div><div class="xp-val">+3,150 XP</div><div class="diff-val">▲ 150</div></div>
@@ -260,23 +260,23 @@
 
     <main id="page-xptable" class="main-page">
         <section class="policy-section">
-            <h3 style="margin-bottom: 15px;">레벨별 필요 및 누적 XP 검색</h3>
+            <h3 style="margin-bottom: 12px; font-size: 15px;">레벨별 필요 및 누적 XP 검색</h3>
             
             <div class="table-search-box">
                 <div>
-                    <label style="display: block; font-size: 13px; color: #a1a1aa; margin-bottom: 8px;">🔍 레벨을 입력하여 검색하세요</label>
-                    <input type="number" id="search-level-input" min="1" max="700" placeholder="레벨 검색 (1~700)" value="" onkeydown="if(event.key === 'Enter'){ searchLevelXp(true); }">
-                    <button onclick="searchLevelXp(true)" style="margin-left: 5px; padding: 10px 15px; background: #e91e3f; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">검색</button>
+                    <label style="display: block; font-size: 12px; color: #a1a1aa; margin-bottom: 6px;">🔍 레벨을 입력하여 검색하세요</label>
+                    <input type="number" id="search-level-input" min="1" max="700" placeholder="레벨 (1~700)" value="" onkeydown="if(event.key === 'Enter'){ searchLevelXp(true); }">
+                    <button onclick="searchLevelXp(true)" style="margin-left: 5px; padding: 7px 12px; background: #e91e3f; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 12.5px;">검색</button>
                 </div>
                 <div class="table-search-result">
                     <div style="text-align: center;">
-                        <span style="font-size: 12px; color: #71717a; display: block; margin-bottom: 4px;">해당 레벨 누적 XP</span>
-                        <span id="search-cum-xp" style="font-size: 16px; font-weight: 700; color: #e91e3f;">- XP</span>
+                        <span style="font-size: 11px; color: #71717a; display: block; margin-bottom: 2px;">해당 레벨 누적 XP</span>
+                        <span id="search-cum-xp" style="font-size: 14.5px; font-weight: 700; color: #e91e3f;">- XP</span>
                     </div>
-                    <div style="border-left: 1px solid #2d2d35; margin: 0 15px;"></div>
+                    <div style="border-left: 1px solid #2d2d35; margin: 0 10px;"></div>
                     <div style="text-align: center;">
-                        <span style="font-size: 12px; color: #71717a; display: block; margin-bottom: 4px;">레벨업 필요 XP (이전 ➡ 현재)</span>
-                        <span id="search-req-xp" style="font-size: 16px; font-weight: 700; color: #ffffff;">- XP</span>
+                        <span style="font-size: 11px; color: #71717a; display: block; margin-bottom: 2px;">레벨업 필요 XP (이전 ➡ 현재)</span>
+                        <span id="search-req-xp" style="font-size: 14.5px; font-weight: 700; color: #ffffff;">- XP</span>
                     </div>
                 </div>
             </div>
@@ -287,7 +287,7 @@
                         <tr>
                             <th>도달 레벨</th>
                             <th>누적 XP 총량</th>
-                            <th>필요 XP (이전 구간 대비)</th>
+                            <th>필요 XP (이전 대비)</th>
                         </tr>
                     </thead>
                     <tbody id="full-xp-table-body">
@@ -301,7 +301,7 @@
         <section class="simulator-section">
             <div class="simulator-grid">
                 <div class="input-form">
-                    <h3>시뮬레이터 조건 설정</h3>
+                    <h3 style="font-size:15px; margin-bottom:5px;">시뮬레이터 조건 설정</h3>
                     
                     <div class="form-group">
                         <label>현재 유저 레벨</label>
@@ -364,7 +364,7 @@
                 </div>
 
                 <div style="display: flex; flex-direction: column; justify-content: flex-start;">
-                    <h3 style="visibility: hidden;">공백 맞춤용 헤더</h3> 
+                    <h3 style="visibility: hidden; font-size:15px; margin-bottom:5px;">공백맞춤</h3> 
                     
                     <div class="layered-result-container">
                         <div class="card-grand-total">
@@ -379,8 +379,8 @@
                         <div class="card-analysis-details">
                             <table class="details-table">
                                 <colgroup>
-                                    <col style="width: 70%;">
-                                    <col style="width: 30%;">
+                                    <col style="width: 72%;">
+                                    <col style="width: 28%;">
                                 </colgroup>
                                 <tbody>
                                     <tr><td>선택 채널 기본 XP (1회당)</td><td id="out-channel-base">0</td></tr>
@@ -388,11 +388,11 @@
                                     <tr><td>[채널] 1회 지급당 합계 XP</td><td id="out-combined-base">0</td></tr>
                                     <tr><td>[채널] 예상 활동 인정 횟수</td><td id="out-channel-cycles">0회</td></tr>
                                     <tr><td>[채널] 활동 XP 획득 총량</td><td id="out-channel-total">0</td></tr>
-                                    <tr><td id="label-b1">[아이템] XP Boost+ 추가합산 (5분당)</td><td id="out-b1-val">0</td></tr>
-                                    <tr><td id="label-b2">[아이템] [XP] S1 Boost+ 추가합산 (5분당)</td><td id="out-b2-val">0</td></tr>
-                                    <tr><td id="label-ev">[이벤트] 6월 Bonus 추가합산 (5분당)</td><td id="out-ev-val">0</td></tr>
-                                    <tr><td id="label-pen">[아이템] 펭귄 마스코트 추가합산 (5분당)</td><td id="out-pen-val">0</td></tr>
-                                    <tr><td id="label-buff-cycles">[아이템] 적용 인정 횟수 (5분 지속 기준)</td><td id="out-buff-cycles">0회</td></tr>
+                                    <tr><td id="label-b1">[아이템] XP Boost+ 추가합산</td><td id="out-b1-val">0</td></tr>
+                                    <tr><td id="label-b2">[아이템] [XP] S1 Boost+ 추가합산</td><td id="out-b2-val">0</td></tr>
+                                    <tr><td id="label-ev">[이벤트] 6월 Bonus 추가합산</td><td id="out-ev-val">0</td></tr>
+                                    <tr><td id="label-pen">[아이템] 펭귄 마스코트 추가합산</td><td id="out-pen-val">0</td></tr>
+                                    <tr><td id="label-buff-cycles">[아이템] 적용 인정 횟수</td><td id="out-buff-cycles">0회</td></tr>
                                     <tr><td>[버프] 아이템/이벤트 획득 총량</td><td id="out-buff-total">0</td></tr>
                                     <tr><td>[출석] 기본 출석 보상 합계</td><td id="out-attend-base">0</td></tr>
                                     <tr><td>[출석] 출석 Boost 추가 합계</td><td id="out-attend-boost">0</td></tr>
@@ -461,7 +461,7 @@
                 </div>
             </div>
 
-            <div class="faq-category-title" style="margin-top: 25px;">XP SHOP 관련 FAQ</div>
+            <div class="faq-category-title" style="margin-top: 15px;">XP SHOP 관련 FAQ</div>
             <div class="faq-container">
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 레벨에 따라 구매할 수 있는 상품이 다른가요? <span class="arrow">▼</span></div>
