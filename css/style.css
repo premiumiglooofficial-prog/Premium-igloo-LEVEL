@@ -11,13 +11,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 30px 15px; /* 전체 화면 여백 축소 */
+    padding: 30px 15px; 
 }
 
 .system-container {
     width: 100%;
-    max-width: 1000px; /* 전체 가로폭을 줄여 정갈하게 배치 */
+    max-width: 1000px; 
     margin: 0 auto;
+}
+
+/* ── 숫자 입력창 위아래 화살표(스피너) 영구 제거 ── */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 /* ── 메인 타이틀 헤더 ── */
@@ -27,7 +37,7 @@ body {
     padding-bottom: 15px;
 }
 .main-title {
-    font-size: 24px; /* 본래의 정갈한 크기로 축소 */
+    font-size: 24px; 
     font-weight: 800;
     color: #ffffff;
     margin-bottom: 6px;
@@ -61,8 +71,8 @@ body {
     background: transparent;
     border: none;
     color: #71717a;
-    padding: 12px 20px; /* 부하게 늘어났던 여백 압축 */
-    font-size: 15px; /* 균형을 깨지 않는 15px로 정렬 */
+    padding: 12px 20px; 
+    font-size: 15px; 
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -183,7 +193,7 @@ body {
     background: #18181b;
     border: 1px solid #2d2d35;
     border-radius: 8px;
-    padding: 15px 25px; /* 상하 여백을 촘촘하게 압축 */
+    padding: 15px 25px; 
     margin-bottom: 20px;
 }
 
@@ -191,7 +201,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 14px 0; /* 본래의 정갈한 간격 복원 */
+    padding: 14px 0; 
     border-bottom: 1px solid #2d2d35;
 }
 .policy-list-item:last-child { border-bottom: none; padding-bottom: 0; }
@@ -218,15 +228,17 @@ body {
     white-space: nowrap;
     border: 1px solid rgba(233, 30, 63, 0.15);
 }
+
+/* 쿨타임 확실한 초록색으로 변경 완료 */
 .policy-badge-green {
-    background: rgba(132, 204, 22, 0.12);
-    color: #84cc16;
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
     padding: 4px 10px;
     border-radius: 12px;
     font-size: 12px;
     font-weight: 700;
     white-space: nowrap;
-    border: 1px solid rgba(132, 204, 22, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.2);
 }
 
 /* 역할별 펭귄 미니 표 */

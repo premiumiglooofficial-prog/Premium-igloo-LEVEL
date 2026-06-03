@@ -110,23 +110,31 @@ function searchLevelXp(isManual = false) {
 }
 
 // ==========================================
-// 3. 실시간 XP 버프 시뮬레이터 로직
+// 3. 실시간 XP 버프 시뮬레이터 로직 (입력 제한 포함)
 // ==========================================
 
 function runXpSimulator() {
     const simLevelEl = document.getElementById('sim-level');
+    const simTimeEl = document.getElementById('sim-time');
+    const simAttendEl = document.getElementById('sim-attendance');
+    
     if (!simLevelEl) return;
+
+    // 최대 한도 강제 고정 스크립트 (무한 입력 방지)
+    if (parseInt(simLevelEl.value) > 1000) simLevelEl.value = 1000;
+    if (parseInt(simTimeEl.value) > 999999) simTimeEl.value = 999999;
+    if (parseInt(simAttendEl.value) > 9999) simAttendEl.value = 9999;
 
     const level = Math.max(0, parseInt(simLevelEl.value) || 0);
     const channel = document.getElementById('sim-channel').value;
-    const time = Math.max(0, parseInt(document.getElementById('sim-time').value) || 0);
+    const time = Math.max(0, parseInt(simTimeEl.value) || 0);
     
     const boost1Yn = document.getElementById('sim-boost1').value;
     const boost2Yn = document.getElementById('sim-boost2').value;
     const eventYn = document.getElementById('sim-event').value;
     const penguinType = document.getElementById('sim-penguin').value;
     
-    const attendanceCount = Math.max(0, parseInt(document.getElementById('sim-attendance').value) || 0);
+    const attendanceCount = Math.max(0, parseInt(simAttendEl.value) || 0);
     const attendBoostYn = document.getElementById('sim-attend-boost').value;
 
     let channelBaseXp = 0;

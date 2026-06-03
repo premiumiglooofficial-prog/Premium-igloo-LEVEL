@@ -25,6 +25,7 @@
         </div>
     </nav>
 
+    <!-- =============== 대분류 0: 시스템 소개 =============== -->
     <main id="page-intro" class="main-page active">
         <section class="policy-section">
             
@@ -109,7 +110,8 @@
             </div>
 
             <div>
-                <div class="split-section-title" style="color: #e91e3f;">구매 주의사항</div>
+                <!-- 구매 주의사항 빨간색 제거 반영 완료 -->
+                <div class="split-section-title">구매 주의사항</div>
                 <ul class="warn-list">
                     <li>XP 소모 구매 방식으로, 소모된 XP로 인해 레벨이 하락할 수 있습니다.</li>
                 </ul>
@@ -118,6 +120,7 @@
         </section>
     </main>
 
+    <!-- =============== 대분류 1: XP 획득 및 혜택 =============== -->
     <main id="page-policy" class="main-page">
         <section class="policy-section">
             <div class="sub-tab-menu">
@@ -258,6 +261,7 @@
         </section>
     </main>
 
+    <!-- =============== 대분류 2: 1~700 XP 테이블 =============== -->
     <main id="page-xptable" class="main-page">
         <section class="policy-section">
             <h3 style="margin-bottom: 12px; font-size: 15px;">레벨별 필요 및 누적 XP 검색</h3>
@@ -291,12 +295,14 @@
                         </tr>
                     </thead>
                     <tbody id="full-xp-table-body">
-                        </tbody>
+                        <!-- 자동 생성 로드 데이터 -->
+                    </tbody>
                 </table>
             </div>
         </section>
     </main>
 
+    <!-- =============== 대분류 3: 시뮬레이터 =============== -->
     <main id="page-simulator" class="main-page">
         <section class="simulator-section">
             <div class="simulator-grid">
@@ -305,7 +311,8 @@
                     
                     <div class="form-group">
                         <label>현재 유저 레벨</label>
-                        <input type="number" id="sim-level" value="0" min="0" oninput="runXpSimulator()">
+                        <!-- max 한도 설정 -->
+                        <input type="number" id="sim-level" value="0" min="0" max="1000" oninput="runXpSimulator()">
                     </div>
                     <div class="form-group">
                         <label>이용 활동 채널</label>
@@ -317,7 +324,8 @@
                     </div>
                     <div class="form-group">
                         <label>총 활동 시간 (분 단위)</label>
-                        <input type="number" id="sim-time" value="0" min="0" oninput="runXpSimulator()">
+                        <!-- max 한도 설정 -->
+                        <input type="number" id="sim-time" value="0" min="0" max="999999" oninput="runXpSimulator()">
                     </div>
                     <div class="form-group">
                         <label>[아이템] XP Boost+ 적용</label>
@@ -352,7 +360,8 @@
                     </div>
                     <div class="form-group">
                         <label>총 출석 횟수</label>
-                        <input type="number" id="sim-attendance" value="0" min="0" oninput="runXpSimulator()">
+                        <!-- max 한도 설정 -->
+                        <input type="number" id="sim-attendance" value="0" min="0" max="9999" oninput="runXpSimulator()">
                     </div>
                     <div class="form-group">
                         <label>출석 Boost 추가 적용</label>
@@ -405,6 +414,7 @@
         </section>
     </main>
 
+    <!-- =============== 대분류 4: 자주 묻는 질문(FAQ) =============== -->
     <main id="page-faq" class="main-page">
         <section class="policy-section">
             
