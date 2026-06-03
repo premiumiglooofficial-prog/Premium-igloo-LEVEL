@@ -1,46 +1,35 @@
 // ==========================================
-// 1. UI 인터페이스 제어 및 탭 본문 전환 익스텐션
+// 1. UI 인터페이스 제어
 // ==========================================
-
 function toggleFaq(element) {
     element.classList.toggle('active');
 }
 
 function switchMainPage(pageId, element) {
     const pages = document.getElementsByClassName("main-page");
-    for (let i = 0; i < pages.length; i++) {
-        pages[i].classList.remove("active");
-    }
+    for (let i = 0; i < pages.length; i++) { pages[i].classList.remove("active"); }
     const tabBtns = document.getElementsByClassName("main-tab-btn");
-    for (let i = 0; i < tabBtns.length; i++) {
-        tabBtns[i].classList.remove("active");
-    }
+    for (let i = 0; i < tabBtns.length; i++) { tabBtns[i].classList.remove("active"); }
     
     document.getElementById(pageId).classList.add("active");
     element.classList.add("active");
 
-    if(pageId === 'page-simulator') {
-        runXpSimulator();
-    }
+    if(pageId === 'page-simulator') { runXpSimulator(); }
 }
 
 function switchSubTab(event, tabId) {
     const tabContents = document.getElementsByClassName("sub-tab-content");
-    for (let i = 0; i < tabContents.length; i++) {
-        tabContents[i].classList.remove("active");
-    }
+    for (let i = 0; i < tabContents.length; i++) { tabContents[i].classList.remove("active"); }
     const tabButtons = document.getElementsByClassName("sub-tab-btn");
-    for (let i = 0; i < tabButtons.length; i++) {
-        tabButtons[i].classList.remove("active");
-    }
+    for (let i = 0; i < tabButtons.length; i++) { tabButtons[i].classList.remove("active"); }
+    
     document.getElementById(tabId).classList.add("active");
     event.currentTarget.classList.add("active");
 }
 
 // ==========================================
-// 2. XP 테이블 기하수식 커널 (1,000레벨 연산 반영)
+// 2. XP 테이블 생성 (1,000레벨 지원)
 // ==========================================
-
 function getCumulativeXpByLevel(lvl) {
     if (lvl <= 0) return 0;
     return Math.floor(((23 * lvl)**2 - 525) / 5) + 1;
@@ -48,13 +37,11 @@ function getCumulativeXpByLevel(lvl) {
 
 function getLevelByXp(xp) {
     if (xp <= 0) return 0;
-    for (let l = 1; l <= 1000; l++) { // 역산 한도를 1000으로 확장
+    for (let l = 1; l <= 1000; l++) {
         let requiredTotalXp = Math.floor(((23 * l)**2 - 525) / 5) + 1;
-        if (xp < requiredTotalXp) {
-            return l - 1; 
-        }
+        if (xp < requiredTotalXp) { return l - 1; }
     }
-    return 1000; // 최대 도달 레벨 1000
+    return 1000; 
 }
 
 function renderFullXpTable() {
@@ -62,7 +49,7 @@ function renderFullXpTable() {
     if (!tbody) return;
 
     let htmlStr = '';
-    for (let i = 1; i <= 1000; i++) { // 테이블 렌더링을 1000줄까지 생성
+    for (let i = 1; i <= 1000; i++) { 
         const cumXp = getCumulativeXpByLevel(i);
         const reqXp = i === 1 ? 0 : cumXp - getCumulativeXpByLevel(i - 1);
         htmlStr += `
@@ -89,7 +76,7 @@ function searchLevelXp(isManual = false) {
 
     let inputVal = parseInt(rawVal);
     if (inputVal < 1) inputVal = 1;
-    if (inputVal > 1000) inputVal = 1000; // 검색 상한선 1000
+    if (inputVal > 1000) inputVal = 1000; 
     searchInput.value = inputVal;
     
     const cumXp = getCumulativeXpByLevel(inputVal);
@@ -110,32 +97,33 @@ function searchLevelXp(isManual = false) {
 }
 
 // ==========================================
-// 3. 실시간 XP 버프 시뮬레이터 로직
+// 3. 실시간 시뮬레이터 (체크박스/다중선택 개편 완벽 적용)
 // ==========================================
-
 function runXpSimulator() {
     const simLevelEl = document.getElementById('sim-level');
     const simTimeEl = document.getElementById('sim-time');
     const simAttendEl = document.getElementById('sim-attendance');
-    
     if (!simLevelEl) return;
 
-    if (parseInt(simLevelEl.value) > 1000) simLevelEl.value = 1000;
-    if (parseInt(simTimeEl.value) > 999999) simTimeEl.value = 999999;
-    if (parseInt(simAttendEl.value) > 9999) simAttendEl.value = 9999;
+    // 공백일 때 제한 코드가 실행되지 않도록 조건 추가 (Placeholder 보존)
+    if (simLevelEl.value !== "" && parseInt(simLevelEl.value) > 1000) simLevelEl.value = 1000;
+    if (simTimeEl.value !== "" && parseInt(simTimeEl.value) > 999999) simTimeEl.value = 999999;
+    if (simAttendEl.value !== "" && parseInt(simAttendEl.value) > 9999) simAttendEl.value = 9999;
 
+    // 빈칸이면 0으로 취계산
     const level = Math.max(0, parseInt(simLevelEl.value) || 0);
-    const channel = document.getElementById('sim-channel').value;
     const time = Math.max(0, parseInt(simTimeEl.value) || 0);
-    
-    const boost1Yn = document.getElementById('sim-boost1').value;
-    const boost2Yn = document.getElementById('sim-boost2').value;
-    const eventYn = document.getElementById('sim-event').value;
-    const penguinType = document.getElementById('sim-penguin').value;
-    
     const attendanceCount = Math.max(0, parseInt(simAttendEl.value) || 0);
-    const attendBoostYn = document.getElementById('sim-attend-boost').value;
+    
+    const channel = document.getElementById('sim-channel').value;
+    
+    // 토글 스위치 (checked 불리언 값으로 변경)
+    const boost1Yn = document.getElementById('sim-boost1').checked;
+    const boost2Yn = document.getElementById('sim-boost2').checked;
+    const eventYn = document.getElementById('sim-event').checked;
+    const attendBoostYn = document.getElementById('sim-attend-boost').checked;
 
+    // 채널 로직
     let channelBaseXp = 0;
     let levelBonusXp = 0;
     let checkInterval = 1;
@@ -148,7 +136,6 @@ function runXpSimulator() {
         checkInterval = 5;   
         channelBaseXp = (channel === 'voice') ? 3000 : 3200;
         
-        // 보너스 XP 상한은 기존과 동일하게 700레벨 이상 구간으로 고정
         if (level >= 700) levelBonusXp = 1000;
         else if (level >= 649) levelBonusXp = 800;
         else if (level >= 600) levelBonusXp = 750;
@@ -170,27 +157,29 @@ function runXpSimulator() {
     const buffCycles = channelCycles; 
     const channelTotalXp = (channelBaseXp + levelBonusXp) * channelCycles;
 
-    const b1Add = (boost1Yn === 'Y') ? 300 : 0;
-    const b2Add = (boost2Yn === 'Y') ? 100 : 0;
-    const evAdd = (eventYn === 'Y') ? 200 : 0;
+    // 버프 다중 체크 처리
+    const b1Add = boost1Yn ? 300 : 0;
+    const b2Add = boost2Yn ? 100 : 0;
+    const evAdd = eventYn ? 200 : 0;
     
+    // 펭귄 Pill버튼 다중 중복 합산
     let penguinAdd = 0;
-    if (penguinType === 'child') penguinAdd = 225;
-    else if (penguinType === 'youth') penguinAdd = 325;
-    else if (penguinType === 'adult') penguinAdd = 425;
-    else if (penguinType === 'mother') penguinAdd = 525;
+    if (document.getElementById('pen-child').checked) penguinAdd += 225;
+    if (document.getElementById('pen-youth').checked) penguinAdd += 325;
+    if (document.getElementById('pen-adult').checked) penguinAdd += 425;
+    if (document.getElementById('pen-mother').checked) penguinAdd += 525;
 
     const buffTotalXp = (b1Add + b2Add + evAdd + penguinAdd) * buffCycles;
     const attendanceBaseTotal = attendanceCount * 5000;
-    const attendanceBoostTotal = (attendBoostYn === 'Y') ? (attendanceCount * 5000) : 0;
-    const finalGrandTotal = channelTotalXp + buffTotalXp + attendanceBaseTotal + attendanceBoostTotal;
+    const attendanceBoostTotal = attendBoostYn ? (attendanceCount * 5000) : 0;
     
+    const finalGrandTotal = channelTotalXp + buffTotalXp + attendanceBaseTotal + attendanceBoostTotal;
     const currentCumulativeXp = getCumulativeXpByLevel(level);
     const projectedTotalXp = currentCumulativeXp + finalGrandTotal;
     
-    // 시뮬레이터 도달 예상 한도를 1000으로 연산
     const finalLevel = getLevelByXp(projectedTotalXp);
 
+    // 디스플레이 매핑
     document.getElementById('totalXpDisplay').innerText = projectedTotalXp.toLocaleString() + ' XP';
     document.getElementById('newXpDisplay').innerText = '(예상 추가 획득: + ' + finalGrandTotal.toLocaleString() + ' XP)';
     document.getElementById('reachedLevelDisplay').innerText = '도달 예상: ' + finalLevel + ' Lv';

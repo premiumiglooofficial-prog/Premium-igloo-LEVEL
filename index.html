@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고급 이글루 SYSTEM : LEVEL</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?ver=4">
 </head>
 <body>
 
@@ -265,7 +265,7 @@
             <div class="table-search-box">
                 <div>
                     <label style="display: block; font-size: 12px; color: #a1a1aa; margin-bottom: 6px;">🔍 레벨을 입력하여 검색하세요</label>
-                    <input type="number" id="search-level-input" min="1" max="1000" placeholder="레벨 (1~1000)" value="" onkeydown="if(event.key === 'Enter'){ searchLevelXp(true); }">
+                    <input type="number" id="search-level-input" min="1" max="1000" placeholder="0~1000" onkeydown="if(event.key === 'Enter'){ searchLevelXp(true); }">
                     <button onclick="searchLevelXp(true)" style="margin-left: 5px; padding: 7px 12px; background: #e91e3f; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 12.5px;">검색</button>
                 </div>
                 <div class="table-search-result">
@@ -305,7 +305,7 @@
                     
                     <div class="form-group">
                         <label>현재 유저 레벨</label>
-                        <input type="number" id="sim-level" value="0" min="0" max="1000" oninput="runXpSimulator()">
+                        <input type="number" id="sim-level" placeholder="0~1000" min="0" max="1000" oninput="runXpSimulator()">
                     </div>
                     <div class="form-group">
                         <label>이용 활동 채널</label>
@@ -317,49 +317,62 @@
                     </div>
                     <div class="form-group">
                         <label>총 활동 시간 (분 단위)</label>
-                        <input type="number" id="sim-time" value="0" min="0" max="999999" oninput="runXpSimulator()">
+                        <input type="number" id="sim-time" placeholder="0~999999" min="0" max="999999" oninput="runXpSimulator()">
                     </div>
+                    
                     <div class="form-group">
                         <label>[아이템] XP Boost+ 적용</label>
-                        <select id="sim-boost1" onchange="runXpSimulator()">
-                            <option value="N">미적용</option>
-                            <option value="Y">적용</option>
-                        </select>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="sim-boost1" onchange="runXpSimulator()">
+                            <span class="slider"></span>
+                        </label>
                     </div>
                     <div class="form-group">
                         <label>[아이템] [XP] S1 Boost+ 적용</label>
-                        <select id="sim-boost2" onchange="runXpSimulator()">
-                            <option value="N">미적용</option>
-                            <option value="Y">적용</option>
-                        </select>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="sim-boost2" onchange="runXpSimulator()">
+                            <span class="slider"></span>
+                        </label>
                     </div>
                     <div class="form-group">
                         <label>[이벤트] 6월 Bonus 적용</label>
-                        <select id="sim-event" onchange="runXpSimulator()">
-                            <option value="N">미적용</option>
-                            <option value="Y">적용</option>
-                        </select>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="sim-event" onchange="runXpSimulator()">
+                            <span class="slider"></span>
+                        </label>
                     </div>
-                    <div class="form-group">
-                        <label>[아이템] 보유 펭귄 선택</label>
-                        <select id="sim-penguin" onchange="runXpSimulator()">
-                            <option value="none">없음</option>
-                            <option value="child">어린이 펭귄 (+225)</option>
-                            <option value="youth">청소년 펭귄 (+325)</option>
-                            <option value="adult">어른 펭귄 (+425)</option>
-                            <option value="mother">어미 펭귄 (+525)</option>
-                        </select>
+
+                    <div class="form-group col-layout" style="border-bottom:none; padding-bottom:0;">
+                        <label style="margin-bottom: 5px;">[아이템] 보유 펭귄 선택 (중복 가능)</label>
+                        <div class="pill-group">
+                            <label class="pill-check">
+                                <input type="checkbox" id="pen-child" onchange="runXpSimulator()">
+                                <span>어린이 (+225)</span>
+                            </label>
+                            <label class="pill-check">
+                                <input type="checkbox" id="pen-youth" onchange="runXpSimulator()">
+                                <span>청소년 (+325)</span>
+                            </label>
+                            <label class="pill-check">
+                                <input type="checkbox" id="pen-adult" onchange="runXpSimulator()">
+                                <span>어른 (+425)</span>
+                            </label>
+                            <label class="pill-check">
+                                <input type="checkbox" id="pen-mother" onchange="runXpSimulator()">
+                                <span>어미 (+525)</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div style="border-bottom: 1px solid #232329; margin-bottom: 8px;"></div> <div class="form-group">
                         <label>총 출석 횟수</label>
-                        <input type="number" id="sim-attendance" value="0" min="0" max="9999" oninput="runXpSimulator()">
+                        <input type="number" id="sim-attendance" placeholder="0~9999" min="0" max="9999" oninput="runXpSimulator()">
                     </div>
                     <div class="form-group">
                         <label>출석 Boost 추가 적용</label>
-                        <select id="sim-attend-boost" onchange="runXpSimulator()">
-                            <option value="N">미적용</option>
-                            <option value="Y">적용</option>
-                        </select>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="sim-attend-boost" onchange="runXpSimulator()">
+                            <span class="slider"></span>
+                        </label>
                     </div>
                 </div>
 
@@ -407,7 +420,6 @@
 
     <main id="page-faq" class="main-page">
         <section class="policy-section">
-            
             <div class="faq-category-title">XP & LEVEL 관련 FAQ</div>
             <div class="faq-container">
                 <div class="faq-item" onclick="toggleFaq(this)">
@@ -419,7 +431,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 채팅을 빠르고 많이 치면 XP를 빨리 획득할 수 있나요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -429,7 +440,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 음성 채널에 혼자 있어도 XP 획득이 가능한가요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -439,7 +449,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 레벨이 오르면 어떤 구체적인 혜택이 있나요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -449,7 +458,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 서버 퇴장 시 XP 및 LEVEL이 유지 되나요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -472,7 +480,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-q">Q. 상품 구매 후 환불 및 교환이 가능한가요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
@@ -483,11 +490,10 @@
                     </div>
                 </div>
             </div>
-
         </section>
     </main>
 </div>
 
-<script src="js/script.js"></script>
+<script src="js/script.js?ver=4"></script>
 </body>
 </html>
