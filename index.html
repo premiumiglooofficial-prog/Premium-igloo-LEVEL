@@ -110,7 +110,6 @@
             </div>
 
             <div>
-                <!-- 구매 주의사항 빨간색 제거 반영 완료 -->
                 <div class="split-section-title">구매 주의사항</div>
                 <ul class="warn-list">
                     <li>XP 소모 구매 방식으로, 소모된 XP로 인해 레벨이 하락할 수 있습니다.</li>
@@ -311,7 +310,6 @@
                     
                     <div class="form-group">
                         <label>현재 유저 레벨</label>
-                        <!-- max 한도 설정 -->
                         <input type="number" id="sim-level" value="0" min="0" max="1000" oninput="runXpSimulator()">
                     </div>
                     <div class="form-group">
@@ -324,7 +322,6 @@
                     </div>
                     <div class="form-group">
                         <label>총 활동 시간 (분 단위)</label>
-                        <!-- max 한도 설정 -->
                         <input type="number" id="sim-time" value="0" min="0" max="999999" oninput="runXpSimulator()">
                     </div>
                     <div class="form-group">
@@ -360,7 +357,6 @@
                     </div>
                     <div class="form-group">
                         <label>총 출석 횟수</label>
-                        <!-- max 한도 설정 -->
                         <input type="number" id="sim-attendance" value="0" min="0" max="9999" oninput="runXpSimulator()">
                     </div>
                     <div class="form-group">
@@ -377,7 +373,8 @@
                     
                     <div class="layered-result-container">
                         <div class="card-grand-total">
-                            <span class="total-xp-title">최종 도달 예상 누적 XP</span>
+                            <!-- 어색했던 문구 수정 완료 -->
+                            <span class="total-xp-title">예상 최종 누적 XP</span>
                             <div class="total-xp-wrapper">
                                 <span class="level-badge" id="reachedLevelDisplay">도달 예상: 0 Lv</span>
                                 <span class="total-xp-display" id="totalXpDisplay">0 XP</span>

@@ -46,15 +46,16 @@ function getCumulativeXpByLevel(lvl) {
     return Math.floor(((23 * lvl)**2 - 525) / 5) + 1;
 }
 
+// 도달 레벨 1,000까지 역산할 수 있도록 제한 확장 완료
 function getLevelByXp(xp) {
     if (xp <= 0) return 0;
-    for (let l = 1; l <= 700; l++) {
+    for (let l = 1; l <= 1000; l++) {
         let requiredTotalXp = Math.floor(((23 * l)**2 - 525) / 5) + 1;
         if (xp < requiredTotalXp) {
             return l - 1; 
         }
     }
-    return 700; 
+    return 1000; 
 }
 
 function renderFullXpTable() {
@@ -110,7 +111,7 @@ function searchLevelXp(isManual = false) {
 }
 
 // ==========================================
-// 3. 실시간 XP 버프 시뮬레이터 로직 (입력 제한 포함)
+// 3. 실시간 XP 버프 시뮬레이터 로직
 // ==========================================
 
 function runXpSimulator() {
@@ -120,7 +121,6 @@ function runXpSimulator() {
     
     if (!simLevelEl) return;
 
-    // 최대 한도 강제 고정 스크립트 (무한 입력 방지)
     if (parseInt(simLevelEl.value) > 1000) simLevelEl.value = 1000;
     if (parseInt(simTimeEl.value) > 999999) simTimeEl.value = 999999;
     if (parseInt(simAttendEl.value) > 9999) simAttendEl.value = 9999;
