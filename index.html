@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고급 이글루 SYSTEM : LEVEL</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- CSS 파일 연결 시 캐시 방지 코드를 붙여 확실한 갱신 보장 -->
-    <link rel="stylesheet" href="css/style.css?ver=6">
+    <link rel="stylesheet" href="css/style.css?ver=7">
 </head>
 <body>
 
@@ -26,7 +25,6 @@
         </div>
     </nav>
 
-    <!-- =============== 대분류 0: 시스템 소개 =============== -->
     <main id="page-intro" class="main-page active">
         <section class="policy-section">
             
@@ -120,7 +118,6 @@
         </section>
     </main>
 
-    <!-- =============== 대분류 1: XP 획득 및 혜택 =============== -->
     <main id="page-policy" class="main-page">
         <section class="policy-section">
             <div class="sub-tab-menu">
@@ -261,7 +258,6 @@
         </section>
     </main>
 
-    <!-- =============== 대분류 2: 1~1000 XP 테이블 =============== -->
     <main id="page-xptable" class="main-page">
         <section class="policy-section">
             <h3 style="margin-bottom: 12px; font-size: 15px;">레벨별 필요 및 누적 XP 검색</h3>
@@ -295,14 +291,12 @@
                         </tr>
                     </thead>
                     <tbody id="full-xp-table-body">
-                        <!-- 자동 생성 로드 데이터 -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </section>
     </main>
 
-    <!-- =============== 대분류 3: 시뮬레이터 (UI 대폭 개편) =============== -->
     <main id="page-simulator" class="main-page">
         <section class="simulator-section">
             <div class="simulator-grid">
@@ -326,7 +320,6 @@
                         <input type="number" id="sim-time" placeholder="0~999999" min="0" max="999999" oninput="runXpSimulator()">
                     </div>
                     
-                    <!-- 토글 스위치 도입 -->
                     <div class="form-group">
                         <label>[아이템] XP Boost+ 적용</label>
                         <label class="toggle-switch">
@@ -349,7 +342,6 @@
                         </label>
                     </div>
 
-                    <!-- 펭귄 중복 다중 선택 영역 (Pill 스타일) -->
                     <div class="form-group col-layout" style="border-bottom:none; padding-bottom:0;">
                         <label style="margin-bottom: 5px;">[아이템] 보유 펭귄 선택 (중복 가능)</label>
                         <div class="pill-group">
@@ -371,7 +363,7 @@
                             </label>
                         </div>
                     </div>
-                    <div style="border-bottom: 1px solid #232329; margin-bottom: 8px;"></div> <!-- 구분선 -->
+                    <div style="border-bottom: 1px solid #232329; margin-bottom: 8px;"></div>
 
                     <div class="form-group">
                         <label>총 출석 횟수</label>
@@ -385,9 +377,8 @@
                         </label>
                     </div>
 
-                    <!-- 초기화 버튼 추가 (좌측 하단 정렬) -->
                     <div style="margin-top: 15px; text-align: left;">
-                        <button class="reset-btn" onclick="resetSimulator()">🔄 조건 초기화</button>
+                        <button class="reset-btn" onclick="resetSimulator()">초기화</button>
                     </div>
                 </div>
 
@@ -433,7 +424,6 @@
         </section>
     </main>
 
-    <!-- =============== 대분류 4: 자주 묻는 질문(FAQ) =============== -->
     <main id="page-faq" class="main-page">
         <section class="policy-section">
             <div class="faq-category-title">XP & LEVEL 관련 FAQ</div>
@@ -466,7 +456,7 @@
                     </div>
                 </div>
                 <div class="faq-item" onclick="toggleFaq(this)">
-                    <div class="faq-q">Q. 레벨이 오르면 어떤 구체적인 혜택이 있나요? <span class="arrow">▼</span></div>
+                    <div class="faq-q">Q. 레벨일 오르면 어떤 구체적인 혜택이 있나요? <span class="arrow">▼</span></div>
                     <div class="faq-a">
                         <div class="faq-a-inner">
                             <div class="faq-a-title">단계별 전용 혜택 여부</div>
@@ -510,7 +500,6 @@
     </main>
 </div>
 
-<!-- JS 연동 (버전 파라미터를 추가해 캐시를 뚫어냅니다) -->
-<script src="js/script.js?ver=6"></script>
+<script src="js/script.js?ver=7"></script>
 </body>
 </html>
