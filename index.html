@@ -25,7 +25,6 @@
         </div>
     </nav>
 
-    <!-- =============== 대분류 0: 시스템 소개 =============== -->
     <main id="page-intro" class="main-page active">
         <section class="policy-section">
             
@@ -119,7 +118,6 @@
         </section>
     </main>
 
-    <!-- =============== 대분류 1: XP 획득 및 혜택 =============== -->
     <main id="page-policy" class="main-page">
         <section class="policy-section">
             <div class="sub-tab-menu">
@@ -260,7 +258,6 @@
         </section>
     </main>
 
-    <!-- =============== 대분류 2: 1~700 XP 테이블 =============== -->
     <main id="page-xptable" class="main-page">
         <section class="policy-section">
             <h3 style="margin-bottom: 12px; font-size: 15px;">레벨별 필요 및 누적 XP 검색</h3>
@@ -268,7 +265,7 @@
             <div class="table-search-box">
                 <div>
                     <label style="display: block; font-size: 12px; color: #a1a1aa; margin-bottom: 6px;">🔍 레벨을 입력하여 검색하세요</label>
-                    <input type="number" id="search-level-input" min="1" max="700" placeholder="레벨 (1~700)" value="" onkeydown="if(event.key === 'Enter'){ searchLevelXp(true); }">
+                    <input type="number" id="search-level-input" min="1" max="1000" placeholder="레벨 (1~1000)" value="" onkeydown="if(event.key === 'Enter'){ searchLevelXp(true); }">
                     <button onclick="searchLevelXp(true)" style="margin-left: 5px; padding: 7px 12px; background: #e91e3f; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 12.5px;">검색</button>
                 </div>
                 <div class="table-search-result">
@@ -294,14 +291,12 @@
                         </tr>
                     </thead>
                     <tbody id="full-xp-table-body">
-                        <!-- 자동 생성 로드 데이터 -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </section>
     </main>
 
-    <!-- =============== 대분류 3: 시뮬레이터 =============== -->
     <main id="page-simulator" class="main-page">
         <section class="simulator-section">
             <div class="simulator-grid">
@@ -373,7 +368,6 @@
                     
                     <div class="layered-result-container">
                         <div class="card-grand-total">
-                            <!-- 어색했던 문구 수정 완료 -->
                             <span class="total-xp-title">예상 최종 누적 XP</span>
                             <div class="total-xp-wrapper">
                                 <span class="level-badge" id="reachedLevelDisplay">도달 예상: 0 Lv</span>
@@ -411,7 +405,6 @@
         </section>
     </main>
 
-    <!-- =============== 대분류 4: 자주 묻는 질문(FAQ) =============== -->
     <main id="page-faq" class="main-page">
         <section class="policy-section">
             

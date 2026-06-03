@@ -46,7 +46,7 @@ function getCumulativeXpByLevel(lvl) {
     return Math.floor(((23 * lvl)**2 - 525) / 5) + 1;
 }
 
-// 도달 레벨 1,000까지 역산할 수 있도록 제한 확장 완료
+// 누적 XP 역산 시 1,000레벨까지 완벽하게 지원하도록 확장
 function getLevelByXp(xp) {
     if (xp <= 0) return 0;
     for (let l = 1; l <= 1000; l++) {
@@ -55,15 +55,16 @@ function getLevelByXp(xp) {
             return l - 1; 
         }
     }
-    return 1000; 
+    return 1000; // 최대 한계 1000 고정
 }
 
+// XP 테이블 역시 1,000레벨까지 전부 생성하도록 확장
 function renderFullXpTable() {
     const tbody = document.getElementById('full-xp-table-body');
     if (!tbody) return;
 
     let htmlStr = '';
-    for (let i = 1; i <= 700; i++) {
+    for (let i = 1; i <= 1000; i++) { // 700에서 1000으로 확장
         const cumXp = getCumulativeXpByLevel(i);
         const reqXp = i === 1 ? 0 : cumXp - getCumulativeXpByLevel(i - 1);
         htmlStr += `
@@ -77,6 +78,7 @@ function renderFullXpTable() {
     tbody.innerHTML = htmlStr;
 }
 
+// 레벨 검색 한도 1,000으로 확장
 function searchLevelXp(isManual = false) {
     const searchInput = document.getElementById('search-level-input');
     if (!searchInput) return;
@@ -90,7 +92,7 @@ function searchLevelXp(isManual = false) {
 
     let inputVal = parseInt(rawVal);
     if (inputVal < 1) inputVal = 1;
-    if (inputVal > 700) inputVal = 700;
+    if (inputVal > 1000) inputVal = 1000; // 검색 최대치 1000으로 확장
     searchInput.value = inputVal;
     
     const cumXp = getCumulativeXpByLevel(inputVal);
@@ -187,6 +189,8 @@ function runXpSimulator() {
     
     const currentCumulativeXp = getCumulativeXpByLevel(level);
     const projectedTotalXp = currentCumulativeXp + finalGrandTotal;
+    
+    // 도달 예상 레벨 산출 (1000 확장 적용)
     const finalLevel = getLevelByXp(projectedTotalXp);
 
     document.getElementById('totalXpDisplay').innerText = projectedTotalXp.toLocaleString() + ' XP';
